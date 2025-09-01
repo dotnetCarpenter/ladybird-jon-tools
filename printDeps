@@ -1,0 +1,1 @@
+cat vcpkg.json | jq -C '.dependencies[] | .name? // .' | uniq

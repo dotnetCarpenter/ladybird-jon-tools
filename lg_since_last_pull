@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+SINCE_HASH=$(head -1 lasttime_update | awk '{print $1}')
+
+git lg "$SINCE_HASH^..HEAD"

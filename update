@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+#echo -e "$(git log -1 --pretty=reference)\n$(cat lasttime_update)" > lasttime_update
+#git pull
+
+# Use the Clang compiler
+export CC=$(which clang-20)
+export CXX=$(which clang++-20)
+
+./Meta/ladybird.py build js # build LibJS
+./Meta/ladybird.py build ladybird

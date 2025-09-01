@@ -1,0 +1,1 @@
+./Meta/WPT.sh run --headless $1
