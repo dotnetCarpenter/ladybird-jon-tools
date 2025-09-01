@@ -1,3 +1,4 @@
+f89afe8e27 (LibJS: Allocate context up front in SuperCallWithArgumentArray, 2025-08-30)
 87c7fb1d63 (LibWeb: Use 0 as min-content size for items with `overflow:hidden` [GFC], 2025-08-30)
 277b81ca97 (LibWeb/SVG: Respect `paint-order` when painting SVG paths, 2025-08-24)
 bf3fa13773 (wasm: Don't use a new AbstractMachine to instantiate modules, 2025-08-26)
