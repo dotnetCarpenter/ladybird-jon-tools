@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
-SINCE_HASH=$(head -1 lasttime_update | awk '{print $1}')
+if [ -z "$PATH_TO_LBTOOLS" ]; then
+	echo "PATH_TO_LBTOOLS needs to be set to the parent directory of ladybird-jon-tools/"
+        exit 1
+fi
+
+LAST_GOOD_BUILD_LOG="$PATH_TO_LBTOOLS/ladybird-jon-tools/lasttime_update"
+
+SINCE_HASH=$(head -1 "$LAST_GOOD_BUILD_LOG" | awk '{print $1}')
 
 git lg "$SINCE_HASH^..HEAD"

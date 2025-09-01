@@ -1,6 +1,25 @@
 #!/usr/bin/env bash
 
-echo -e "$(git log -1 --pretty=reference)\n$(cat lasttime_update)" > lasttime_update
+if [ -z "$PATH_TO_LBTOOLS" ]; then
+	echo "PATH_TO_LBTOOLS needs to be set to the parent directory of ladybird-jon-tools/"
+	exit 1
+fi
+
+LAST_GOOD_BUILD_LOG="$PATH_TO_LBTOOLS/ladybird-jon-tools/lasttime_update"
+
+#if [ -f LAST_GOOD_BUILD_LOG ]; then
+#	echo "Something went wrong... Output of PATH_TO_LBTOOLS:"
+#	echo "$PATH_TO_LBTOOLS"
+#	echo "Output of LAST_GOOD_BUILD_LOG:"
+#	echo "$LAST_GOOD_BUILD_LOG"
+#	exit 2
+#fi
+
+# troubleshoot:::
+#echo $LAST_GOOD_BUILD_LOG
+#cat $LAST_GOOD_BUILD_LOG
+
+echo -e "$(git log -1 --pretty=reference)\n$(cat $LAST_GOOD_BUILD_LOG)" > "$LAST_GOOD_BUILD_LOG"
 git pull
 
 # Use the Clang compiler
