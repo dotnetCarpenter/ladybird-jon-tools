@@ -14,17 +14,19 @@ LAST_GOOD_BUILD_LOG="$PATH_TO_LBTOOLS/ladybird-jon-tools/lasttime_update"
 #	echo "$LAST_GOOD_BUILD_LOG"
 #	exit 2
 #fi
-
 # troubleshoot:::
 #echo $LAST_GOOD_BUILD_LOG
 #cat $LAST_GOOD_BUILD_LOG
 
-echo -e "$(git log -1 --pretty=reference)\n$(cat $LAST_GOOD_BUILD_LOG)" > "$LAST_GOOD_BUILD_LOG"
-git pull
+if [ "$1" != "--no-pull" ]; then
+	echo -e "$(git log -1 --pretty=reference)\n$(cat "$LAST_GOOD_BUILD_LOG")" > "$LAST_GOOD_BUILD_LOG"
+	git pull
+fi
 
 # Use the Clang compiler
-export CC=$(which clang-20)
-export CXX=$(which clang++-20)
+#CC=$(which g++)
+#CXX=$(which g++-14)
+#export CC CXX
 
 ./Meta/ladybird.py build js # build LibJS
 ./Meta/ladybird.py build ladybird
