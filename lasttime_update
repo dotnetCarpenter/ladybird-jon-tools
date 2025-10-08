@@ -1,3 +1,4 @@
+72ea158f16 (AK: Initialize StringBuilder buffer in place, 2025-10-04)
 31da9ab4e8 (LibWasm: Take memory_fill arguments in the right order, 2025-10-04)
 fceb73e65a (LibThreading: Remove Weakable from Thread, 2025-09-17)
 660bcfa2cd (LibGfx+LibWeb+UI: Add OpenHand cursor for CSS grab property, 2025-09-06)
