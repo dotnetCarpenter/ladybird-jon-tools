@@ -24,8 +24,9 @@ if [ "$1" != "--no-pull" ]; then
 fi
 
 # Use the Clang compiler
-#CC=$(which g++)
-#CXX=$(which g++-14)
+eval "$(./Meta/find_compiler.py  --cc clang-20 --cxx clang++-20)"
+#CC=$(which clang-20)
+#CXX=$(which clang++-20)
 #export CC CXX
 
 ./Meta/ladybird.py build js # build LibJS
